@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CRUD</title>
+        <script src="angular.min.js"></script>
+    </head>
+ <body>
+    <h1>Crud operation</h1>
+    <label>Name:</label>
+    <input type="text" ng-model="newUser.name">
+    <label>Email:</label>
+    <input type="email" ng-model="newUser.email>
+    <button ng-click="addUser()"> Add </button>
+    <div>
+        <ul>
+            <li ng-repeat="user in users">
+            {{user.name}} - {{user.email}}
+            <button ng-click="editUser()">Edit</button>
+            <button ng-click="deleteUser()">Edit</button>
+            </body>
+</html>

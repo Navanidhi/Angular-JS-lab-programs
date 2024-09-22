@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Angular JS date application</title>
+        <script src="angular.min.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myCtrl" style="background-color: yellow;">
+        <h1 style="background-color: yellow; text-align: center;">Display date and time</h1>
+        <p>Current Date and  TIme:{{currentDate}}</p>
+        <p>Formatted Date(yyyy-MM-dd): {{formattedDate}}</p>
+        <P>Formatted Time(HH:mm:ss): {{formattedTime}}</P>
+        <script>
+            var app =angular.module('myApp',[]);
+            app.controller('myCtrl',function($scope,$filter){
+                $scope.currentDate = new Date();
+                $scope.formattedDate = $filter('date') ($scope.currentDate,'yyyy-MM-dd');
+                $scope.formattedTime = $filter('date') ($scope.currentDate,'HH:mm:ss');
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Calculate square and factorial</title>
+        <script src="angular.min.js"></script>
+    </head>
+    <body style="background-color: yellowgreen;">
+        <h1 style="text-align: center; background-color: blueviolet;">Calculate square and factorial</h1>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <label>Enter a number</label>
+            <input type="number" ng-model="inputno">
+            <button ng-click="fact()">Calculate factorial</button>
+            <p ng-show="factResult != null">Factorial:{{factResult}}</p>
+            <button ng-click="square()">Calculate square</button>
+            <p ng-show="sqResult != null">Square:{{sqResult}}</p>
+        </div>
+
+        <script>
+            var app=angular.module('myApp',[]);
+            app.controller('myCtrl',function($scope){
+                $scope.inputno = 0;
+                $scope. factResult=null;
+                $scope. sqResult=null;
+
+                    $scope.fact=function(){
+                        $scope.factResult=fact($scope.inputno) ;
+                    }
+                    $scope.square=function(){
+                         $scope.sqResult=square($scope.inputno);
+                    }
+                    function fact(n){
+                        if(n ==0 || n== 1){
+                            return   1;
+                        }
+                         else{
+                             return  n * fact(n-1);
+                        }
+                    }
+
+                    function square(n){
+                         return n * n;
+                    }
+            })
+        </script>
+    </body>
+</html>

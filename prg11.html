@@ -1,0 +1,25 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Upper Case</title>
+        <script src="angular.min.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myCtrl" style="background-color: hotpink;">
+     <h1 style="background-color: aqua; text-align: center;">Student Details</h1>
+     <ul>
+        <li ng-repeat="student in students">{{student.usn|uppercase}} -{{student.name|uppercase}} -{{student.course|uppercase}}</li>
+     </ul>
+     <script>
+        var app=angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.students=[
+                {usn:'1cg31cs093',name:'Diya',course:'cloud computing'},
+                {usn:'1cg31cs053',name:'miya',course:'artificial intelligence'},
+                {usn:'1cg31cs033',name:'liya',course:'full stack develpment'},
+                {usn:'1cg31cs063',name:'kiya',course:'devops'},
+                {usn:'1cg31cs123',name:'siya',course:'Cyber Security'}
+            ]
+        })
+        </script>
+    </body>
+</html>

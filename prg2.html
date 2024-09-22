@@ -1,0 +1,31 @@
+<! DCOTYPE>
+<html>
+    <head>
+        <title>Shopping items</title>
+    </head>
+    <body>
+
+            <h1>My Shopping List</h1>
+            <div ng-app="myapp" ng-controller="myctrl">
+                <ul>
+                    <li ng-repeat="x in products">{{X}}<span ng-click="removeItems()"><sup>x</sup></span></li>
+                </ul>
+
+                <input type="text" placeholder="Enter an item">
+                <button ng-click="add()">Add</button>
+                <p>{{errorrtext}}</p>
+            </div>
+
+            <p>Click the little x to remove an item from shopping list</p>
+            <p>Try to add same item twice ,you wil get an error message</p>
+        <script>
+          var app = ('myapp',[]);
+          app.controller(myctrl,function($scope){
+            $scope.products=["Milk","Bread","Butter"];
+            $scope.addItem=function(){
+                
+            }
+          })
+        </script>
+    </body>
+</html>

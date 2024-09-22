@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        To do list
+    </title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <label>New Task</label>
+        <input type="text" ng-model="newTask">
+        <button ng-click="addtask()">Add</button>
+    <div>
+        <ul>
+            <li ng-repeat="task in tasks">{{task}}
+            <button ng-click="edittask($index)">Edit</button>
+            <button ng-click="deletetask($index)">Delete</button>
+        </li>
+        </ul>
+    </div>
+
+    <script>
+        var app=angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.tasks=['task1','task2','task3'];
+     
+            $scope.addtask=function(){
+                if($scope.newTask){
+                    $scope.tasks.push($scope.newTask);
+                    $scope.newTask='';
+                }
+            }
+
+            $scope.edittask=function(index){
+                var editedTask = prompt('Edit task',$scope.tasks[index]);
+                if(editedTask != null){
+                     $scope.tasks[index]= editedTask;
+                }
+            }
+
+            $scope.deletetask=function(index){
+                var confirmDelete=confirm('r u s do u w to delete this?');
+                if(confirmDelete){
+                    $scope.tasks.splice(index,1);
+                }
+            };
+        })
+    </script>
+</body>
+</html>

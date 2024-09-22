@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Details</title>
+        <script src="angular.min.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myCtrl">
+        <h2>Student details</h2>
+        <label for="noOfStudents">Enter no of students:</label>
+        <input type="number" ng-model="noOfStudents" ng-change="updateStudentList()">
+        <div ng-repeat="student in students">
+        <h3>Student{{$index+1}}</h3>
+        <p>Name:{{student.name}}</p>
+        <P>CGPA:{{student.cgpa}}</P>
+        </div>
+<p>Total no students:{{students.length}}</p>
+
+        <script> 
+        var app=angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+          $scope.students=[];
+
+          $scope.updateStudentList=function(){
+            $scope.students=[];
+            for(var i=0;i<$scope.noOfStudents;i++){
+                $scope.students.push({
+                    name:'student'+(i+1),
+                    cgpa:getRandomCGPA()
+                })
+            }
+          };
+          function getRandomCGPA(){
+            return (Math.random()*(4.0-2.0)+2.0).toFixed(2);
+          }
+        })
+        </script>
+    </body>
+</html>

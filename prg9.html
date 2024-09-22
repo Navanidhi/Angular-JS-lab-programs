@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Employee Details</title>
+        <script src="angular.min.js"></script>
+    </head>
+    <body  ng-app="myApp" ng-controller="myCtrl" style="background-color: aqua;">
+        <h1 style="background-color: yellow; text-align:center;">Employee Details</h1>
+        <div>
+            <label>Search by name</label>
+            <input type="text" ng-model="searchName">
+        </div>
+        <div>
+            <label>Search by salary</label>
+            <input type="number" ng-model="searchSalary">
+        </div>
+
+        <div>
+            <ul>
+                <li ng-repeat="emp in emps|filter:{name:searchName, salary:searchSalary}">
+                    {{emp.name}} - Salary:${{emp.salary|number:2}}
+                </li>
+                
+            </ul>
+        </div>
+<script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.emps=[
+                {name:'sid', salary:4433},
+                {name:'saif',salary:23435},
+                {name:'udd',salary:5345}
+        ]
+        $scope.seachName='';
+        $scope.seachSalary='';
+        })
+    </script>
+    </body>
+
+</html>

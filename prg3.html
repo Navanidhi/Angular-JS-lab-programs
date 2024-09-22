@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Simple Calculator</title>
+        <script src="angular.min.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myCtrl">
+        <div>
+        <p>Enter a number1</p>
+        <input type="number" ng-model="number1">
+    
+
+        <p>Enter a number2</p>
+        <input type="number" ng-model="number2">
+    </div>
+    <p>Result: {{number1}} +{{number2}} = {{number1+number2}}</p>
+    <p>Result: {{number1}} -{{number2}} = {{number1-number2}}</p>
+    <p>Result: {{number1}} *{{number2}} = {{number1*number2}}</p>
+    <p>Result: {{number1}} /{{number2}} = {{number1/number2}}</p>
+
+    <script>
+        var app=angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.number1=0;
+            $scope.number2=0;
+
+        })
+    </script>
+</body>
+</html>
